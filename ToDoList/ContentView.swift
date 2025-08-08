@@ -16,7 +16,7 @@ struct ContentView: View {
             HStack{
              Text("To-Do List")
                     .font(.system(size: 40))
-                    .fontWeight(.black)
+                    .fontWeight(.bold)
                 Spacer()
                 Button {
                     withAnimation{

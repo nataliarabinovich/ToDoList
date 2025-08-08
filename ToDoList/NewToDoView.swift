@@ -7,8 +7,9 @@
 
 import SwiftUI
 
-struct NewToDoView: View {
+struct NewToDo: View {
     
+    @Binding var showNewTask: Bool
     @Bindable var toDoItem: ToDoItem
     @Environment(\.modelContext) var modelContext
     var body: some View {
@@ -33,14 +34,13 @@ struct NewToDoView: View {
             }//end label
         }//end VStack
         .padding()
-        
+    }
        func addToDo() {
             let toDo = ToDoItem(title: toDoItem.title, isImportant: toDoItem.isImportant)
             modelContext.insert(toDo)
         }//end func addToDo
-    }//end some View
-}//end struct
+    }//end struct
 
 #Preview {
-    NewToDo(showNewTask: .constant(false), toDoItem: toDoItem: "", isImportant: false)
+    NewToDo(showNewTask: .constant(false), toDoItem: ToDoItem(title:"", isImportant: false))
 }
